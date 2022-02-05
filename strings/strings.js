@@ -19,3 +19,8 @@ let firstD = "D";
 console.log(firstName.indexOf(firstD));
 let lastE = "e";
 console.log(firstName.lastIndexOf(lastE));
+
+const str1 = "    There is    space here \n  ";
+const str2 = str1.trim();
+
+console.log(str2);
