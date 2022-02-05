@@ -24,3 +24,21 @@ const str1 = "    There is    space here \n  ";
 const str2 = str1.trim();
 
 console.log(str2);
+
+const fullName = "Peter Heronimus Lind";
+let firstName1 = fullName.substring(0, 5);
+
+console.log(`_${firstName1}_`);
+
+let albus = name.substring(0 , 5);
+console.log(albus);
+let dumbledore = name.substring(29);
+console.log(dumbledore);
+let wulfric = name.substring(15, 22);
+console.log(wulfric);
+let _wulfric = name.substring(14, 22);
+console.log(_wulfric);
+let ian = name.substring(25, 29);
+console.log(ian);
+let bus = name.substring(2, 5);
+console.log(bus);
