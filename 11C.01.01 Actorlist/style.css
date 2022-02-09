@@ -1,0 +1,45 @@
+.elementcontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 150px;
+  width: 30vw;
+  height: 30vh;
+  background-color: red;
+  overflow: scroll;
+}
+
+/*********** NAV START *********/
+
+header nav a:link {
+  color: #2671b2;
+}
+
+header nav a:visited {
+  color: #2671b2;
+}
+
+header nav a:hover {
+  color: #f19101;
+}
+
+header nav a:active {
+  color: #2671b2;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  flex-direction: column;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>11C.01.01 - Actorlist</h1>
+    <article class="buttons">
+      <nav>
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="Pulp Fiction">Pulp Fiction</button>
+        <button data-kategori="Goodfellas">Goodfellas</button>
+        <button data-kategori="Inception">Inception</button>
+        <button data-kategori="Fight Club">Fight Club</button>
+      </nav>
+    </article>
+
+    <template>
+      <article id="liste">
+        <h2 class="name"></h2>
+        <p class="movie"></p>
+        <button class="læs-mere-knap">Læs mere</button>
+      </article>
+    </template>
+
+    <section class="elementcontainer"></section>
+
+    <section id="popup">
+      <button>X</button>
+      <article>
+        <h2 class="name"></h2>
+        <p class="movie"></p>
+      </article>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
