@@ -9,18 +9,29 @@ window.addEventListener("DOMContentLoaded", initFunc);
 
 
 function initFunc() {
-    if (arr.length < 9){
+
+    if (counter < 22 ){
+        setTimeout(addArr, 1000)
+    } 
+ 
+
+}
+
+function addArr () {
+   
+    if (counter < 10){
         counter++;
-      
         arr.unshift(counter);
-        console.log(arr);
-        setTimeout(initFunc, 1000);
        
-      
-    // } else if (counter < 22){
-    //     counter++;
-    //     arr.unshift(counter);
-    //     setTimeout(initFunc, 1000);
-    // }
-}}
+    } 
+     else {
+        counter++;
+        arr.unshift(counter);
+        arr.length =9;
+        counter++;
+        console.log(arr);
+    
+    }
+    initFunc();
+}
 
