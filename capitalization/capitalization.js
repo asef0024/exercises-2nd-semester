@@ -6,6 +6,13 @@
 
 // const PeteR = console.log(myName.charAt(0).toUpperCase()+myName.substring(1,4)+myName.substring(4).toUpperCase());
 
-const peTer = "peTer"
+// const peTer = "peTer"
 
-const Peter = console.log(peTer.charAt(0).toUpperCase()+peTer.substring(1).toLowerCase());
+// const Peter = console.log(peTer.charAt(0).toUpperCase()+peTer.substring(1).toLowerCase());
+
+function capitalize(str) {
+    console.log(str.charAt(0).toUpperCase()+str.substring(1).toLowerCase());
+}
+
+capitalize("peTer");
+
