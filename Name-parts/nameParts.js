@@ -18,6 +18,7 @@ function getNameParts (fullname) {
 
 getNameParts("Asefeh Luca Zivlaei");
 
+//Fullname function
 function fullname(lastName, firstName, middleName) {
     if (middleName == undefined) {
         console.log(firstName + " " + lastName)
