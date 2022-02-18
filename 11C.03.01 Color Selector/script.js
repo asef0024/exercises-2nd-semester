@@ -25,7 +25,7 @@ function hexToRGB(hex) {
     let b = parseInt(hex.substring(5,7), 16).toString();
 
     rgb = `${r}, ${g}, ${b}`; 
-    displayRgbValue();
+    displayRgbValue(rgb);
     hexToHsl(r, g, b);
 
 }
@@ -39,6 +39,7 @@ function hexToHsl (r, g, b) {
     g /= 255;
     b /= 255;
   
+    console.log(r)
     let h, s, l;
   
     const min = Math.min(r,g,b);
@@ -67,11 +68,12 @@ function hexToHsl (r, g, b) {
       s = (max - l) / ( Math.min(l,1-l));
     }
     // multiply s and l by 100 to get the value in percent, rather than [0,1]
-    s *= 100;
-    l *= 100;
+    s = Math.floor(s *= 100);
+    l = Math.floor(l *= 100);
+
 
     let hsl = `${h}, ${s}%, ${l}%`;
-    console.log(hsl)
+    console.log(s)
     displayHslValue(hsl);
     console.log("hsl(%f,%f%,%f%)", h, s, l); // just for testing
 };
@@ -83,20 +85,18 @@ function showColor() {
     let userValue = document.querySelector("#colorValue").value;
     document.querySelector(".colorBox").style.backgroundColor = userValue;
     renderValue(userValue); 
-    console.log(userValue)
-    console.log("hej linie 82") 
 };
 
 
 //udskrive input værdien i hex felt
 function renderValue(userValue) {
     document.querySelector(".hexCode").textContent = userValue;
-    displayRgbValue(userValue);
+    hexToRGB(userValue);
 }
 
 
 // display rgb value funktion
-function displayRgbValue() {
+function displayRgbValue(userValue) {
     document.querySelector(".rgbCode").textContent = rgb;
     // console.log(rgb);
 }
