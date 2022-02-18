@@ -10,9 +10,18 @@
 
 // const Peter = console.log(peTer.charAt(0).toUpperCase()+peTer.substring(1).toLowerCase());
 
+// function capitalize(str) {
+//     console.log(str.charAt(0).toUpperCase()+str.substring(1).toLowerCase());
+// }
+
+// capitalize("peTer");
+
+
 function capitalize(str) {
-    console.log(str.charAt(0).toUpperCase()+str.substring(1).toLowerCase());
+    return str.charAt(0).toUpperCase()+str.substring(1).toLowerCase();
 }
 
-capitalize("peTer");
+let minReturn = capitalize("peTer");
+
+console.log(minReturn)
 

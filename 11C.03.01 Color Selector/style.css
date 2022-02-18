@@ -1,0 +1,26 @@
+.colorBox {
+  border: solid;
+  height: 200px;
+  width: 200px;
+  background-color: black;
+  border-radius: 10%;
+}
+
+.colorSelect,
+.colorCodes {
+  display: flex;
+  align-items: center;
+}
+
+.hexCode,
+.rgbCode,
+.hslCode {
+  border-radius: 10%;
+  border: solid;
+  height: 20px;
+  width: 100px;
+}
+
+.colorDisplay {
+  background-color: blanchedalmond;
+}

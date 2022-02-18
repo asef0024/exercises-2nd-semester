@@ -4,9 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Color converter</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <section class="colorDisplay">
+      <div class="colorSelect">
+        <h1>Select color:</h1>
+        <input type="color" id="colorValue" />
+      </div>
+      <div class="colorBox"></div>
+      <div class="colorCodes">
+        <h2>HEX:</h2>
+        <div class="hexCode"></div>
+      </div>
+      <div class="colorCodes">
+        <h2>RGB:</h2>
+        <div class="rgbCode"></div>
+      </div>
+      <div class="colorCodes">
+        <h2>HSL:</h2>
+        <div class="hslCode"></div>
+      </div>
+    </section>
+    <section class="colorWheel"></section>
+
     <script src="script.js"></script>
   </body>
 </html>
