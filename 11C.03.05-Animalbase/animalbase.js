@@ -1,8 +1,11 @@
 "use strict";
 
+const HTML = {};
+
 window.addEventListener("DOMContentLoaded", start);
 
 let allAnimals = [];
+let filteredAnimals;
 
 // The prototype for all animals: 
 const Animal = {
@@ -17,9 +20,16 @@ function start( ) {
    
 
     // TODO: Add event-listeners to filter and sort buttons
-    document.querySelector("[data-filter='cat']").addEventListener("click", () => prepareAnimals(isCat));
-    document.querySelector("[data-filter='dog']").addEventListener("click", () => prepareAnimals(isDog));
-    document.querySelector("[data-filter='*']").addEventListener("click", () => prepareAnimals(all));
+    HTML.allFilterBtn = document.querySelectorAll("[data-action=filter]");
+    HTML.allSortBtn = document.querySelectorAll("[data-action=sort]");
+
+    // Add event-listeners to btn and run the filter animal list
+    HTML.allFilterBtn.forEach((btn) => {
+        btn.addEventListener("click", filterAnimals);
+    });
+    HTML.allSortBtn.forEach((btn) => {
+        btn.addEventListener("click", sortAnimals);
+    });
 
     loadJSON();
 }
@@ -39,6 +49,7 @@ function prepareObjects( jsonData ) {
     // TODO: This might not be the function we want to call first
     displayList(allAnimals);
     
+    filteredAnimals = allAnimals;
 }
 
 function preapareObject( jsonObject ) {
@@ -80,34 +91,95 @@ function displayAnimal( animal ) {
 
 
 // filter all
-function all() {
-    return true;
+// function all() {
+//     return true;
+// }
+// // filter only cats
+// function isCat(animal) {
+//     if(animal.type === "cat") {
+//         return true; 
+//     } else {
+//         return false;
+//     }
+// }; 
+
+// // filter dogs 
+// function isDog(animal) {
+//     if(animal.type === "dog") {
+//         return true; 
+//     } else {
+//         return false;
+//     }
+// };
+
+
+function filterAnimals(){
+    let type = this.dataset.filter
+    if (type === "*"){
+        filteredAnimals = allAnimals;
+    }else{
+        filteredAnimals = allAnimals.filter(isAnimalType);
+
+        function isAnimalType(animal) {
+            if(animal.type === type){
+                return true; 
+            } else {
+                return false;
+            }
+        }
+    }
+    displayList(filteredAnimals)
 }
-// filter only cats
-function isCat(animal) {
-    if(animal.type === "cat") {
-        return true; 
-    } else {
-        return false;
-    }
-}; 
+// //Click on a filer filters table
+// function prepareAnimals(filterFunction){
+//     //filter on a criteia
+//     filteredAnimals = allAnimals.filter(filterFunction);
+//     displayList(filteredAnimals);
+// };
 
-// filter dogs 
-function isDog(animal) {
-    if(animal.type === "dog") {
-        return true; 
-    } else {
-        return false;
-    }
-};
+function sortAnimals(){
+    let sortFilter = this.dataset.sort;
 
-//Click on a filer filters table
-function prepareAnimals(filterFunction){
-    //filter on a criteia
-    let filteredAnimals = allAnimals.filter(filterFunction);
-    
-    displayList(filteredAnimals);
-    console.log(filteredAnimals)
+    if (sortFilter === "name"){
+        filteredAnimals.sort(compareName);
+    } else if (sortFilter === "type"){
+        filteredAnimals.sort(compareType);
+    } else if (sortFilter === "desc"){
+        filteredAnimals.sort(compareDesc);
+    } else if (sortFilter === "age"){
+            filteredAnimals.sort(compareAge);
+    } 
+    displayList(filteredAnimals)
 };
 
 
+function compareName(a,b){
+    if (a.name < b.name){
+        return -1;
+    } else {
+        return 1;
+    }
+};
+function compareType(a, b) {
+    if (a.type < b.type) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+  
+  function compareDesc(a, b) {
+    if (a.desc < b.desc) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+  
+  function compareAge(a, b) {
+    if (a.age < b.age) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
