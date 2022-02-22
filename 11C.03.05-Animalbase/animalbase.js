@@ -114,6 +114,7 @@ function displayAnimal( animal ) {
 
 
 function filterAnimals(){
+     //hent datasæt fra klikket knap
     let type = this.dataset.filter
     if (type === "*"){
         filteredAnimals = allAnimals;
@@ -138,48 +139,48 @@ function filterAnimals(){
 // };
 
 function sortAnimals(){
+    //hent datasæt fra klikket knap
     let sortFilter = this.dataset.sort;
-
-    if (sortFilter === "name"){
-        filteredAnimals.sort(compareName);
-    } else if (sortFilter === "type"){
-        filteredAnimals.sort(compareType);
-    } else if (sortFilter === "desc"){
-        filteredAnimals.sort(compareDesc);
-    } else if (sortFilter === "age"){
-            filteredAnimals.sort(compareAge);
-    } 
+ 
+    filteredAnimals.sort(sortByValue);
+    function sortByValue(a,b){
+      if (a[sortFilter] < b[sortFilter]){
+          return -1;
+      } else {
+          return 1;
+      }
+  };
     displayList(filteredAnimals)
 };
 
 
-function compareName(a,b){
-    if (a.name < b.name){
-        return -1;
-    } else {
-        return 1;
-    }
-};
-function compareType(a, b) {
-    if (a.type < b.type) {
-      return -1;
-    } else {
-      return 1;
-    }
-  }
+// function compareName(a,b){
+//     if (a.name < b.name){
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// };
+// function compareType(a, b) {
+//     if (a.type < b.type) {
+//       return -1;
+//     } else {
+//       return 1;
+//     }
+//   }
   
-  function compareDesc(a, b) {
-    if (a.desc < b.desc) {
-      return -1;
-    } else {
-      return 1;
-    }
-  }
+//   function compareDesc(a, b) {
+//     if (a.desc < b.desc) {
+//       return -1;
+//     } else {
+//       return 1;
+//     }
+//   }
   
-  function compareAge(a, b) {
-    if (a.age < b.age) {
-      return -1;
-    } else {
-      return 1;
-    }
-  }
+//   function compareAge(a, b) {
+//     if (a.age < b.age) {
+//       return -1;
+//     } else {
+//       return 1;
+//     }
+//   }
