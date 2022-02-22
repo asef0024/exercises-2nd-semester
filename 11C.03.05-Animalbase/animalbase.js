@@ -9,17 +9,20 @@ let filteredAnimals;
 
 // The prototype for all animals: 
 const Animal = {
+    star: false,
     name: "",
     desc: "-unknown animal-",
     type: "",
     age: 0
 };
 
+let myStar = Animal.star
+
 function start( ) {
     console.log("ready");
    
 
-    // TODO: Add event-listeners to filter and sort buttons
+    // make buttons into variables
     HTML.allFilterBtn = document.querySelectorAll("[data-action=filter]");
     HTML.allSortBtn = document.querySelectorAll("[data-action=sort]");
 
@@ -30,7 +33,7 @@ function start( ) {
     HTML.allSortBtn.forEach((btn) => {
         btn.addEventListener("click", sortAnimals);
     });
-
+ 
     loadJSON();
 }
 
@@ -48,9 +51,11 @@ function prepareObjects( jsonData ) {
 
     // TODO: This might not be the function we want to call first
     displayList(allAnimals);
-    
+   
     filteredAnimals = allAnimals;
+    buildList();
 }
+
 
 function preapareObject( jsonObject ) {
     const animal = Object.create(Animal);
@@ -64,6 +69,11 @@ function preapareObject( jsonObject ) {
     return animal;
 }
 
+function buildList() {
+    const currentList = allAnimals; // FUTURE: Filter and sort currentList before displaying
+
+    displayList( currentList );
+}
 
 function displayList(animals) {
     // clear the list
@@ -83,10 +93,30 @@ function displayAnimal( animal ) {
     clone.querySelector("[data-field=type]").textContent = animal.type;
     clone.querySelector("[data-field=age]").textContent = animal.age;
 
+    if (animal.star) {
+        clone.querySelector("[data-field=star]").textContent = "⭐";
+    }else {
+    clone.querySelector("[data-field=star]").textContent = "☆";
+    }
+
+    clone.querySelector("[data-field=star]").addEventListener("click", toggleStar);
+
+    function toggleStar() {
+        console.log("toggler mine stjerner")
+    
+         if (animal.star === true){
+            animal.star  = false;
+         }else {
+            animal.star  = true;
+             
+         }
+         buildList();
+    }
+
     // append clone to list
     document.querySelector("#list tbody").appendChild( clone );
-    
-   
+
+
 }
 
 
@@ -184,3 +214,5 @@ function sortAnimals(){
 //       return 1;
 //     }
 //   }
+
+
